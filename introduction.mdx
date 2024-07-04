@@ -1,71 +1,33 @@
 ---
-title: Introduction
-description: "Welcome to the home of your new documentation"
+title: Overview
 ---
 
-<img
-  className="block dark:hidden"
-  src="/images/hero-light.svg"
-  alt="Hero Light"
-/>
-<img
-  className="hidden dark:block"
-  src="/images/hero-dark.svg"
-  alt="Hero Dark"
-/>
+## What is tach?
 
-## Setting up
+Tach allows you to control dependencies between your Python modules.
+Modules can also define an explicit public interface to prevent deep coupling.
 
-The first step to world-class documentation is setting up your editing environments. First
+This creates a decoupled, modular architecture, which makes maintenance and development easier.
 
-<CardGroup cols={2}>
-  <Card
-    title="Edit Your Docs"
-    icon="pen-to-square"
-    href="https://mintlify.com/docs/quickstart"
-  >
-    Get your docs set up locally for easy development
-  </Card>
-  <Card
-    title="Preview Changes"
-    icon="image"
-    href="https://mintlify.com/docs/development"
-  >
-    Preview your changes before you push to make sure they're perfect
-  </Card>
-</CardGroup>
+If a module tries to import from another module that is not listed as a dependency, Tach will report an error.
 
-## Make it yours
+When a module is in ['strict mode'](usage/strict-mode), if another module tries to import from it without using its public interface, Tach will report an error.
 
-Update your docs to your brand and add valuable content for the best user conversion.
+Tach is a CLI tool, and is ideal for pre-commit hooks and CI checks.
 
-<CardGroup cols={2}>
-  <Card
-    title="Customize Style"
-    icon="palette"
-    href="https://mintlify.com/docs/settings/global"
-  >
-    Customize your docs to your company's colors and brands
-  </Card>
-  <Card
-    title="Reference APIs"
-    icon="code"
-    href="https://mintlify.com/docs/api-playground/openapi"
-  >
-    Automatically generate endpoints from an OpenAPI spec
-  </Card>
-  <Card
-    title="Add Components"
-    icon="screwdriver-wrench"
-    href="https://mintlify.com/docs/components/accordion"
-  >
-    Build interactive features and designs to guide your users
-  </Card>
-  <Card
-    title="Get Inspiration"
-    icon="stars"
-    href="https://mintlify.com/customers"
-  >
-    Check out our showcase of our favorite documentation
-  </Card>
-</CardGroup>
+Tach is:
+
+- 🌎 Open source
+- 🐍 Installable via pip
+- 🔧 Able to be adopted incrementally
+- ⚡ Implemented with no runtime impact
+- ♾️ Interoperable with your existing systems (cli, hooks, ci, etc.)
+
+## Commands
+
+- [`tach mod`](usage/commands#tach-mod) - Interactively define module boundaries.
+- [`tach check`](usage/commands#tach-check) - Check that boundaries are respected.
+- [`tach sync`](usage/commands#tach-sync) - Sync constraints with the actual dependencies in your project.
+- [`tach show`](usage/commands#tach-show) - Visualize your project's dependency graph.
+- [`tach report`](usage/commands#tach-report) - Generate a dependency report for a file or module.
+- [`tach install`](usage/commands#tach-install) - Install Tach into your development workflow (e.g. pre-commit)
